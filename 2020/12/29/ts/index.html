@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    跨域 |  Hexo
+    ts |  Hexo
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -44,7 +44,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-跨域"
+  id="post-ts"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -55,22 +55,22 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  跨域
+  ts
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/12/29/%E8%B7%A8%E5%9F%9F/" class="article-date">
-  <time datetime="2020-12-29T05:36:44.000Z" itemprop="datePublished">2020-12-29</time>
+      <a href="/2020/12/29/ts/" class="article-date">
+  <time datetime="2020-12-29T12:17:49.000Z" itemprop="datePublished">2020-12-29</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">525</span>
+            <span class="post-count">0</span>
         </span>
     </span>
 
@@ -79,7 +79,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">1 min</span>
         </span>
     </span>
 </div>
@@ -92,27 +92,7 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>##什么是跨域##<br>当一个请求url的协议、域名、端口三者之间任意一个与当前页面url不同即为跨域。<br>##为什么会跨域##<br>出于浏览器的同源策略限制。同源策略（Sameoriginpolicy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说Web是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。同源策略会阻止一个域的javascript脚本和另外一个域的内容进行交互。所谓同源（即指在同一个域）就是两个页面具有相同的协议（protocol），主机（host）和端口号（port）<br>非同源限制<br>【1】无法读取非同源网页的 Cookie、LocalStorage 和 IndexedDB</p>
-<p>【2】无法接触非同源网页的 DOM</p>
-<p>【3】无法向非同源地址发送 AJAX 请求<br>跨域解决方法<br>JSONP 是服务器与客户端跨源通信的常用方法。最大特点就是简单适用，兼容性好（兼容低版本IE），缺点是只支持get请求，不支持post请求。</p>
-<p>核心思想：网页通过添加一个<script>元素，向服务器请求 JSON 数据，服务器收到请求后，将数据放在一个指定名字的回调函数的参数位置传回来。</p>
-<p>①原生实现：</p>
-<script src="http://test.com/data.php?callback=dosomething"></script>
-<p>// 向服务器test.com发出请求，该请求的查询字符串有一个callback参数，用来指定回调函数的名字</p>
-<p>// 处理服务器返回回调函数的数据</p>
-<script type="text/javascript">
-    function dosomething(res){
-        // 处理获得的数据
-        console.log(res.data)
-    }
-</script>
-<p>Vue.js<br>this.$http.jsonp(‘<a target="_blank" rel="noopener" href="http://www.domain2.com:8080/login&#39;">http://www.domain2.com:8080/login&#39;</a>, {<br>    params: {},<br>    jsonp: ‘handleCallback’<br>}).then((res) =&gt; {<br>    console.log(res);<br>})<br>根据xhr.withCredentials字段判断是否带有cookie</p>
-<p>原生ajax</p>
-<p>var xhr = new XMLHttpRequest(); // IE8/9需用window.XDomainRequest兼容</p>
-<p>// 前端设置是否带cookie<br>xhr.withCredentials = true;</p>
-<p>xhr.open(‘post’, ‘<a target="_blank" rel="noopener" href="http://www.domain2.com:8080/login&#39;">http://www.domain2.com:8080/login&#39;</a>, true);<br>xhr.setRequestHeader(‘Content-Type’, ‘application/x-www-form-urlencoded’);<br>xhr.send(‘user=admin’);</p>
-<p>xhr.onreadystatechange = function() {<br>    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {<br>        alert(xhr.responseText);<br>    }<br>};</p>
- 
+   
       <!-- reward -->
       
       <div id="reword-out">
@@ -182,7 +162,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/12/29/%E8%B7%A8%E5%9F%9F/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/12/29/ts/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -193,19 +173,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2020/12/29/ts/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            ts
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/12/28/%E6%94%B9%E5%8F%98this%E6%8C%87%E5%90%91%E7%9A%84%E4%B8%89%E4%B8%AA%E6%96%B9%E6%B3%95/" class="article-nav-link">
+      <a href="/2020/12/29/%E8%B7%A8%E5%9F%9F/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">.call、apply、bind的区别</div>
+        <div class="article-nav-title">跨域</div>
       </a>
     
   </nav>
