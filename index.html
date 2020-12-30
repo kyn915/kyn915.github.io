@@ -156,7 +156,7 @@
        
 <h2 itemprop="name">
   <a class="article-title" href="/2020/12/29/ts/"
-    >ts</a> 
+    >ts 严格模式</a> 
 </h2>
  
 
@@ -170,7 +170,22 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <p>TS的好处<br>方便更准确的检查错误。<br>给程序带来稳定性和可预测性。<br>静态类型检查。项目中不再需要typeof检查类型，数据类型之前就规定好的。比如react传过来的props就不需要写proptypes。<br>类型注解</p>
+<p>类型注解就是给变量、函数添加类型约束。</p>
+<p>function hello(name:string){<br>    return “hello,”+name;<br>}<br>这里规定了hello函数要接受一个字符串的参数，若此时传number等就会报错。<br>数据类型</p>
+<p>可限制的数据类型有：Boolean number string number[]/Array<br>元组</p>
+<p>元组允许数组类型可以不一致，如 let x:[number,string]<br>枚举</p>
+<p>枚举类型可以为一组数值赋予友好名字</p>
+<p>enum Color {Red=1,Green,Blue}<br>let colorName:string=color[2]<br>alert(colorName); //Green<br>任意值 any<br>当不清楚要指定什么类型时，用any来表示任意值let notSure:any=1<br>当只知道一部分数据的类型时候，也可以使用any,如数组可以包含不同类型的数据<br>let list:any[]=[1,true,’hello world’];<br>list[1]=100;<br>复制代码空值 void<br>如一个函数没有返回值时，则返回值类型为void<br>function noreturn():void{<br>    alert(‘this is not return’)<br>}</p>
+<p>类的修饰符<br>class Car{<br>    public type:string;<br>    private name: string;<br>    protected color:string;<br>    readonly shape:string;<br>}<br>new Car(“train”).name; // 错误: ‘name’ 是私有的.</p>
+<p>public：默认<br>private:不能在声明他的类的外部使用<br>protected:和private很相似，但是能在其派生类中使用<br>readonly:只读属性只能在构造函数或者申明时候使用</p>
+<p>总结<br>TS是JS的超集并能编译成JS，也就是说TS最终会要编译成js才使用。</p>
+<h3 id="TypeScript-中的严格模式"><a href="#TypeScript-中的严格模式" class="headerlink" title="TypeScript 中的严格模式"></a>TypeScript 中的严格模式</h3><p>在 tsconfig.json 文件中，有一个配置项叫做 strict，默认为 true，表示开启严格模式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &#x2F;* Strict Type-Checking Options *&#x2F;</span><br><span class="line">    &quot;strict&quot;: true,                       &#x2F;* Enable all strict type-checking options. *&#x2F;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>TypeScript 中的严格模式跟 JavaScript 中说的严格模式（即 use strict）不是一个概念，它表示是否开启下面一系列的类型检查规则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;noImplicitAny&quot;: true,</span><br><span class="line">    &quot;strictNullChecks&quot;: true, </span><br><span class="line">    &quot;strictFunctionTypes&quot;: true,</span><br><span class="line">    &quot;strictBindCallApply&quot;: true,</span><br><span class="line">    &quot;strictPropertyInitialization&quot;: true,</span><br><span class="line">    &quot;noImplicitThis&quot;: true,</span><br><span class="line">    &quot;alwaysStrict&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你设置 strict 为 true 的话，那么上面所有的配置默认全是 true<br>如果你设置 strict 为 false 的话，那么上面的所有配置默认全是 false<br>你如果既设置了 strict 又单独设置了其中的部分配置，那么以单独设置的配置为准</p>
+ 
       <!-- reward -->
       
     </div>
