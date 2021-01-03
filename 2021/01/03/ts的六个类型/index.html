@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Hello World |  Hexo
+    ts的六个类型 |  Hexo
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -44,7 +44,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-hello-world"
+  id="post-ts的六个类型"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -55,22 +55,22 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Hello World
+  ts的六个类型
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/12/28/hello-world/" class="article-date">
-  <time datetime="2020-12-28T02:50:20.525Z" itemprop="datePublished">2020-12-28</time>
+      <a href="/2021/01/03/ts%E7%9A%84%E5%85%AD%E4%B8%AA%E7%B1%BB%E5%9E%8B/" class="article-date">
+  <time datetime="2021-01-03T12:59:02.000Z" itemprop="datePublished">2021-01-03</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">75</span>
+            <span class="post-count">442</span>
         </span>
     </span>
 
@@ -79,7 +79,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -94,16 +94,39 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
- 
+  <h4 id="1-布尔值"><a href="#1-布尔值" class="headerlink" title="1.布尔值"></a>1.布尔值</h4><p>编译前:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let flag:boolean &#x3D; true</span><br></pre></td></tr></table></figure>
+<p>编译后:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var flag &#x3D; true;</span><br></pre></td></tr></table></figure>
+<h4 id="2-数字"><a href="#2-数字" class="headerlink" title="2.数字"></a>2.数字</h4><p>编译前：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let num:number &#x3D; 123</span><br></pre></td></tr></table></figure>
+<p>编译后:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var num &#x3D; 123;</span><br></pre></td></tr></table></figure>
+<h4 id="3-字符串"><a href="#3-字符串" class="headerlink" title="3.字符串"></a>3.字符串</h4><p>编译前：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let name1:string &#x3D; &#39;哈哈&#39;</span><br><span class="line">name1 &#x3D; &#39;路飞&#39;</span><br></pre></td></tr></table></figure>
+<p>编译后:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var name1 &#x3D; &#39;哈哈&#39;;</span><br><span class="line">name1 &#x3D; &#39;路飞&#39;;</span><br></pre></td></tr></table></figure>
+<h4 id="4-数组"><a href="#4-数组" class="headerlink" title="4.数组"></a>4.数组</h4><blockquote>
+<p>TypeScript像JavaScript一样可以操作数组元素。 有两种方式可以定义数组。 第一种，可以在元素类型后面接上 []，表示由此类型元素组成的一个数组，第二种方式是使用数组泛型，Array&lt;元素类型&gt;：</p>
+</blockquote>
+<p>编译前：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let list:string[] &#x3D; [&quot;hello&quot;,&quot;hi&quot;]  &#x2F;&#x2F;数组类型且里面的值为字符串</span><br><span class="line">let list2:Array&lt;number&gt; &#x3D; [1,2]    &#x2F;&#x2F;数组泛型&#x3D;&#x3D;&gt;Array&lt;元素类型&gt;</span><br></pre></td></tr></table></figure>
+<p>编译后:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var list &#x3D; [&quot;hello&quot;, &quot;hi&quot;]; &#x2F;&#x2F;数组类型且里面的值为字符串</span><br><span class="line">var list2 &#x3D; [1, 2]; &#x2F;&#x2F;数组泛型&#x3D;&#x3D;&gt;Array&lt;元素类型&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="5-元组"><a href="#5-元组" class="headerlink" title="5.元组"></a>5.元组</h4><blockquote>
+<p>元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。</p>
+</blockquote>
+<p>编译前：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let all:[number,string] &#x3D; [1,&#39;hello&#39;]  &#x2F;&#x2F;元组类型</span><br></pre></td></tr></table></figure>
+<p>编译后:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var all &#x3D; [1, &#39;hello&#39;]; &#x2F;&#x2F;元组类型</span><br></pre></td></tr></table></figure>
+<h4 id="6-枚举"><a href="#6-枚举" class="headerlink" title="6.枚举"></a>6.枚举</h4><blockquote>
+<p>enum类型是对JavaScript标准数据类型的一个补充。 像C#等其它语言一样，使用枚举类型可以为一组数值赋予友好的名字。</p>
+</blockquote>
+<p>编译前：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red, Green, Blue&#125; &#x2F;&#x2F;枚举</span><br><span class="line">let c: Color &#x3D; Color.Green;</span><br></pre></td></tr></table></figure>
+<p>编译后:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var Color;</span><br><span class="line">(function (Color) &#123;</span><br><span class="line">    Color[Color[&quot;Red&quot;] &#x3D; 0] &#x3D; &quot;Red&quot;;</span><br><span class="line">    Color[Color[&quot;Green&quot;] &#x3D; 1] &#x3D; &quot;Green&quot;;</span><br><span class="line">    Color[Color[&quot;Blue&quot;] &#x3D; 2] &#x3D; &quot;Blue&quot;;</span><br><span class="line">&#125;)(Color || (Color &#x3D; &#123;&#125;)); &#x2F;&#x2F;枚举</span><br><span class="line">var c &#x3D; Color.Green;</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -173,7 +196,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/12/28/hello-world/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/01/03/ts%E7%9A%84%E5%85%AD%E4%B8%AA%E7%B1%BB%E5%9E%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -184,15 +207,11 @@
    
   <nav class="article-nav">
     
-      <a href="/2020/12/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            第一篇博客
-          
-        </div>
-      </a>
     
+      <a href="/2021/01/03/%E5%B1%9E%E6%80%A7%E6%8F%8F%E8%BF%B0%E7%AC%A6/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">属性描述符</div>
+      </a>
     
   </nav>
 
