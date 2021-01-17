@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    回流和重绘 |  Hexo
+    new |  Hexo
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -44,7 +44,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-回流和重绘"
+  id="post-new"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -55,22 +55,22 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  回流和重绘
+  new
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2021/01/12/%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98/" class="article-date">
-  <time datetime="2021-01-12T12:28:54.000Z" itemprop="datePublished">2021-01-12</time>
+      <a href="/2021/01/17/new/" class="article-date">
+  <time datetime="2021-01-17T15:24:34.000Z" itemprop="datePublished">2021-01-17</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">950</span>
         </span>
     </span>
 
@@ -79,7 +79,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -92,7 +92,73 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <p>new<br>JavaScript深入之new的模拟实现</p>
+<p>new 运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象类型之一</p>
+<p>模拟 new 之前，先看看 new 实现了哪些功能。<br>例子：</p>
+<p>// Otaku 御宅族，简称宅<br>function Otaku (name, age) {<br>    this.name = name;<br>    this.age = age;</p>
+<pre><code>this.habit = &#39;Games&#39;;</code></pre>
+<p>}</p>
+<p>// 因为缺乏锻炼的缘故，身体强度让人担忧<br>Otaku.prototype.strength = 60;</p>
+<p>Otaku.prototype.sayYourName = function () {<br>    console.log(‘I am ‘ + this.name);<br>}</p>
+<p>var person = new Otaku(‘Kevin’, ‘18’);</p>
+<p>console.log(person.name) // Kevin<br>console.log(person.habit) // Games<br>console.log(person.strength) // 60</p>
+<p>person.sayYourName(); // I am Kevin<br>例子中，可以看到，实例 person 可以：</p>
+<p>访问到 Otaku 构造函数里的属性<br>访问到 Otaku.prototype 中的属性<br>模拟new:</p>
+<p>因为 new 是关键字，所以无法像 bind 函数一样直接覆盖，所以我们写一个函数，命名为 objectFactory，来模拟 new 的效果。用的时候是这样的：</p>
+<p>function Otaku () {<br>    ……<br>}</p>
+<p>// 使用 new<br>var person = new Otaku(……);<br>// 使用 objectFactory<br>var person = objectFactory(Otaku, ……)<br>初步实现<br>分析：</p>
+<p>因为 new 的结果是一个新对象，所以在模拟实现的时候，我们也要建立一个新对象，<br>假设这个对象叫 obj，因为 obj 会具有 Otaku 构造函数里的属性，想想经典继承的例子，<br>我们可以使用 Otaku.apply(obj, arguments)来给 obj 添加新的属性。</p>
+<p>在 JavaScript 深入系列第一篇中，我们便讲了原型与原型链，我们知道实例的__proto__属性会指向构造函数的 prototype，也正是因为建立起这样的关系，实例可以访问原型上的属性。</p>
+<p>现在，我们可以尝试着写第一版了：</p>
+<p>// 第一版代码<br>function objectFactory() {</p>
+<pre><code>var obj = new Object(),
+
+Constructor = [].shift.call(arguments);
+
+obj.__proto__ = Constructor.prototype;
+
+Constructor.apply(obj, arguments);
+
+return obj;</code></pre>
+<p>};<br>用new Object() 的方式新建了一个对象 obj<br>取出第一个参数，就是我们要传入的构造函数。此外因为 shift 会修改原数组，所以 arguments 会被去除第一个参数<br>将 obj 的原型指向构造函数，这样 obj 就可以访问到构造函数原型中的属性<br>使用 apply，改变构造函数 this 的指向到新建的对象，这样 obj 就可以访问到构造函数中的属性<br>返回 obj<br>复制以下的代码，到浏览器中，我们可以做一下测试：</p>
+<p>function Otaku (name, age) {<br>    this.name = name;<br>    this.age = age;</p>
+<pre><code>this.habit = &#39;Games&#39;;</code></pre>
+<p>}</p>
+<p>Otaku.prototype.strength = 60;</p>
+<p>Otaku.prototype.sayYourName = function () {<br>    console.log(‘I am ‘ + this.name);<br>}</p>
+<p>function objectFactory() {<br>    var obj = new Object(),<br>    Constructor = [].shift.call(arguments);<br>    obj.<strong>proto</strong> = Constructor.prototype;<br>    Constructor.apply(obj, arguments);<br>    return obj;<br>};</p>
+<p>var person = objectFactory(Otaku, ‘Kevin’, ‘18’)</p>
+<p>console.log(person.name) // Kevin<br>console.log(person.habit) // Games<br>console.log(person.strength) // 60</p>
+<p>返回值效果实现<br>假如构造函数有返回值，举个例子：</p>
+<p>function Otaku (name, age) {<br>    this.strength = 60;<br>    this.age = age;</p>
+<pre><code>return &#123;
+    name: name,
+    habit: &#39;Games&#39;
+&#125;</code></pre>
+<p>}</p>
+<p>var person = new Otaku(‘Kevin’, ‘18’);</p>
+<p>console.log(person.name) // Kevin<br>console.log(person.habit) // Games<br>console.log(person.strength) // undefined<br>console.log(person.age) // undefined<br>构造函数返回了一个对象，在实例 person 中只能访问返回的对象中的属性。</p>
+<p>注意一点，在这里我们是返回了一个对象，假如我们只是返回一个基本类型的值呢？</p>
+<p>再举个例子：</p>
+<p>function Otaku (name, age) {<br>    this.strength = 60;<br>    this.age = age;</p>
+<pre><code>return &#39;handsome boy&#39;;</code></pre>
+<p>}</p>
+<p>var person = new Otaku(‘Kevin’, ‘18’);</p>
+<p>console.log(person.name) // undefined<br>console.log(person.habit) // undefined<br>console.log(person.strength) // 60<br>console.log(person.age) // 18<br>结果完全颠倒过来，这次尽管有返回值，但是相当于没有返回值进行处理。</p>
+<p>所以我们还需要判断返回的值是不是一个对象，如果是一个对象，我们就返回这个对象，如果没有，我们该返回什么就返回什么。</p>
+<p>再来看第二版的代码，也是最后一版的代码：</p>
+<p>// 第二版的代码<br>function objectFactory() {</p>
+<pre><code>var obj = new Object(),
+
+Constructor = [].shift.call(arguments);
+
+obj.__proto__ = Constructor.prototype;
+
+var ret = Constructor.apply(obj, arguments);
+
+return typeof ret === &#39;object&#39; ? ret : obj;</code></pre>
+<p>};</p>
+ 
       <!-- reward -->
       
       <div id="reword-out">
@@ -162,7 +228,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/01/12/%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/01/17/new/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -173,19 +239,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2021/01/17/new/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            new
-          
-        </div>
-      </a>
     
-    
-      <a href="/2021/01/03/ts%E7%9A%84%E5%85%AD%E4%B8%AA%E7%B1%BB%E5%9E%8B/" class="article-nav-link">
+      <a href="/2021/01/12/%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">ts的六个类型</div>
+        <div class="article-nav-title">回流和重绘</div>
       </a>
     
   </nav>
