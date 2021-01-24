@@ -190,6 +190,54 @@
 
     
     <article
+  id="post-虚拟dom是什么"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/01/20/%E8%99%9A%E6%8B%9Fdom%E6%98%AF%E4%BB%80%E4%B9%88/"
+    >虚拟dom是什么</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/01/20/%E8%99%9A%E6%8B%9Fdom%E6%98%AF%E4%BB%80%E4%B9%88/" class="article-date">
+  <time datetime="2021-01-20T13:39:22.000Z" itemprop="datePublished">2021-01-20</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>  在React中，render执行的结果得到的并不是真正的DOM节点，结果仅仅是轻量级的JavaScript对象，我们称之为virtual DOM。</p>
+<pre><code>    虚拟DOM是React的一大亮点，具有batching(批处理)和高效的Diff算法。这让我们可以无需担心性能问题而”毫无顾忌”的随时“刷新”整个页面，由虚拟 DOM来确保只对界面上真正变化的部分进行实际的DOM操作。在实际开发中基本无需关心虚拟DOM是如何运作的，但是理解其运行机制不仅有助于更好的理解React组件的生命周期，而且对于进一步优化 React程序也会有很大帮助。</code></pre>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-super关键字"
   class="article article-type-post"
   itemscope
@@ -736,72 +784,6 @@ a = 123
 <p>var bar = function() {<br>  console.log(1);<br>}<br>// 报错：TypeError: bar is not a function<br>bar()<br>function bar() {<br>  console.log(1);<br>}<br>//输出结果1<br>知识点总结<br>所有的声明都会提升到作用域的最顶上去。</p>
 <p>同一个变量只会声明一次，其他的会被忽略掉或者覆盖掉。</p>
 <p>函数声明的优先级高于变量声明的优先级，并且函数声明和函数定义的部分一起被提升。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-跨域"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/12/29/%E8%B7%A8%E5%9F%9F/"
-    >跨域</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/12/29/%E8%B7%A8%E5%9F%9F/" class="article-date">
-  <time datetime="2020-12-29T05:36:44.000Z" itemprop="datePublished">2020-12-29</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>##什么是跨域##<br>当一个请求url的协议、域名、端口三者之间任意一个与当前页面url不同即为跨域。<br>##为什么会跨域##<br>出于浏览器的同源策略限制。同源策略（Sameoriginpolicy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说Web是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。同源策略会阻止一个域的javascript脚本和另外一个域的内容进行交互。所谓同源（即指在同一个域）就是两个页面具有相同的协议（protocol），主机（host）和端口号（port）<br>非同源限制<br>【1】无法读取非同源网页的 Cookie、LocalStorage 和 IndexedDB</p>
-<p>【2】无法接触非同源网页的 DOM</p>
-<p>【3】无法向非同源地址发送 AJAX 请求<br>跨域解决方法<br>JSONP 是服务器与客户端跨源通信的常用方法。最大特点就是简单适用，兼容性好（兼容低版本IE），缺点是只支持get请求，不支持post请求。</p>
-<p>核心思想：网页通过添加一个<script>元素，向服务器请求 JSON 数据，服务器收到请求后，将数据放在一个指定名字的回调函数的参数位置传回来。</p>
-<p>①原生实现：</p>
-<script src="http://test.com/data.php?callback=dosomething"></script>
-<p>// 向服务器test.com发出请求，该请求的查询字符串有一个callback参数，用来指定回调函数的名字</p>
-<p>// 处理服务器返回回调函数的数据</p>
-<script type="text/javascript">
-    function dosomething(res){
-        // 处理获得的数据
-        console.log(res.data)
-    }
-</script>
-<p>Vue.js<br>this.$http.jsonp(‘<a target="_blank" rel="noopener" href="http://www.domain2.com:8080/login&#39;">http://www.domain2.com:8080/login&#39;</a>, {<br>    params: {},<br>    jsonp: ‘handleCallback’<br>}).then((res) =&gt; {<br>    console.log(res);<br>})<br>根据xhr.withCredentials字段判断是否带有cookie</p>
-<p>原生ajax</p>
-<p>var xhr = new XMLHttpRequest(); // IE8/9需用window.XDomainRequest兼容</p>
-<p>// 前端设置是否带cookie<br>xhr.withCredentials = true;</p>
-<p>xhr.open(‘post’, ‘<a target="_blank" rel="noopener" href="http://www.domain2.com:8080/login&#39;">http://www.domain2.com:8080/login&#39;</a>, true);<br>xhr.setRequestHeader(‘Content-Type’, ‘application/x-www-form-urlencoded’);<br>xhr.send(‘user=admin’);</p>
-<p>xhr.onreadystatechange = function() {<br>    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {<br>        alert(xhr.responseText);<br>    }<br>};</p>
  
       <!-- reward -->
       
