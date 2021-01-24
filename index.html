@@ -190,6 +190,60 @@
 
     
     <article
+  id="post-super关键字"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/01/19/super%E5%85%B3%E9%94%AE%E5%AD%97/"
+    >super关键字</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/01/19/super%E5%85%B3%E9%94%AE%E5%AD%97/" class="article-date">
+  <time datetime="2021-01-19T13:34:42.000Z" itemprop="datePublished">2021-01-19</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>作用：</p>
+<p>1<br>super 关键字用于访问父对象上的函数。<br>语法：</p>
+<p>1<br>2<br>super([arguments]); // 访问父对象上的构造函数<br>super.functionOnParent([arguments]); // 访问对象上的方法<br>详解：</p>
+<p>super可以用在类的继承中，或者对象字面量中，super指代了整个prototype或者__proto__指向的对象</p>
+<p>1 类（prototype相关）</p>
+<p>a 用在子类constructor函数中<br> class Person {<br>    constructor (name) {<br>      this.name = name;<br>    }<br>  }<br> class Student extends Person {<br>    constructor (name, age) {<br>      super(); // 用在构造函数中，必须在使用this之前调用<br>      this.age = age;<br>   }<br> }<br> super()调用会生成一个空对象，作为context来调用父类的constructor，返回this对象，作为子类constructor的context继续调用构造函数。</p>
+<p>context：执行上下文 constructor：构造函数<br>b 调用父类的静态函数<br>class Human {<br>    constructor() {}<br>    static ping() {<br>      return ‘ping’;<br>    }<br>  }</p>
+<p>  class Computer extends Human {<br>    constructor() {}<br>   static pingpong() {<br>     return super.ping() + ‘ pong’;<br>   } // 只有在子类的静态函数中才能调用父类的静态函数（babel环境测试，按理说，在实例函数中应该也可以调用，不过实际测试环境中报错）<br> }<br> Computer.pingpong(); // ‘ping pong’</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-key的作用"
   class="article article-type-post"
   itemscope
@@ -748,60 +802,6 @@ a = 123
 <p>// 前端设置是否带cookie<br>xhr.withCredentials = true;</p>
 <p>xhr.open(‘post’, ‘<a target="_blank" rel="noopener" href="http://www.domain2.com:8080/login&#39;">http://www.domain2.com:8080/login&#39;</a>, true);<br>xhr.setRequestHeader(‘Content-Type’, ‘application/x-www-form-urlencoded’);<br>xhr.send(‘user=admin’);</p>
 <p>xhr.onreadystatechange = function() {<br>    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {<br>        alert(xhr.responseText);<br>    }<br>};</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id=".call、apply、bind-改变this指向的三个方法"
-  class="article article-type-.call、apply、bind"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/12/28/%E6%94%B9%E5%8F%98this%E6%8C%87%E5%90%91%E7%9A%84%E4%B8%89%E4%B8%AA%E6%96%B9%E6%B3%95/"
-    >.call、apply、bind的区别</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/12/28/%E6%94%B9%E5%8F%98this%E6%8C%87%E5%90%91%E7%9A%84%E4%B8%89%E4%B8%AA%E6%96%B9%E6%B3%95/" class="article-date">
-  <time datetime="2020-12-28T12:57:31.000Z" itemprop="datePublished">2020-12-28</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>首先：call、apply、bind的作用是改变函数运行时的this的指向<br>let boj={</p>
-<p>　　name:”123”</p>
-<p>}//先let 一个对象</p>
-<p>function text(){</p>
-<p>　　console.log(this)//这次打印的this的结果是window全局对象</p>
-<p>}<br>call()可以传n个参数，但是第一个参数是this将要指向的对象 当第一个参数为null或者undefined的时候，this默认指向window;之后的参数相当于普通传参一样自定义使用；</p>
-<p>apply()只可以传俩个参数，第一个参数和call()的第一个参数一样，是this将要指向的对象；当第一个参数为null或者undefined的时候，this默认指向window;；第二个参数是一个数组，相当于把call()除第一个参数外的所有参数放到一个数组中；<br>其实apply() 和 call() 的用法基本上相同, 唯一的差别就是：当函数需要传递&gt;1个变量时, apply() 可以接受一个数组作为参数, call() 必须接受&gt;1个的单独变量。</p>
-<p>bind()的传参方式和call()很相似，第一个参数是this将要指向的对象，第一个传null得话不改变this指向，并且可以在后续的调用中去传入参数<br>注意：call() 和 apply() 修改this指向后会立即调用；bind() 不会！</p>
  
       <!-- reward -->
       

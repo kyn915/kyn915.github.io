@@ -144,6 +144,60 @@
     
     
     <article
+  id=".call、apply、bind-改变this指向的三个方法"
+  class="article article-type-.call、apply、bind"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/12/28/%E6%94%B9%E5%8F%98this%E6%8C%87%E5%90%91%E7%9A%84%E4%B8%89%E4%B8%AA%E6%96%B9%E6%B3%95/"
+    >.call、apply、bind的区别</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/12/28/%E6%94%B9%E5%8F%98this%E6%8C%87%E5%90%91%E7%9A%84%E4%B8%89%E4%B8%AA%E6%96%B9%E6%B3%95/" class="article-date">
+  <time datetime="2020-12-28T12:57:31.000Z" itemprop="datePublished">2020-12-28</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>首先：call、apply、bind的作用是改变函数运行时的this的指向<br>let boj={</p>
+<p>　　name:”123”</p>
+<p>}//先let 一个对象</p>
+<p>function text(){</p>
+<p>　　console.log(this)//这次打印的this的结果是window全局对象</p>
+<p>}<br>call()可以传n个参数，但是第一个参数是this将要指向的对象 当第一个参数为null或者undefined的时候，this默认指向window;之后的参数相当于普通传参一样自定义使用；</p>
+<p>apply()只可以传俩个参数，第一个参数和call()的第一个参数一样，是this将要指向的对象；当第一个参数为null或者undefined的时候，this默认指向window;；第二个参数是一个数组，相当于把call()除第一个参数外的所有参数放到一个数组中；<br>其实apply() 和 call() 的用法基本上相同, 唯一的差别就是：当函数需要传递&gt;1个变量时, apply() 可以接受一个数组作为参数, call() 必须接受&gt;1个的单独变量。</p>
+<p>bind()的传参方式和call()很相似，第一个参数是this将要指向的对象，第一个传null得话不改变this指向，并且可以在后续的调用中去传入参数<br>注意：call() 和 apply() 修改this指向后会立即调用；bind() 不会！</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-class"
   class="article article-type-post"
   itemscope
