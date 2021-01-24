@@ -144,6 +144,57 @@
     
     
     <article
+  id="post-mvvm和mvc，mvp区别"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/01/24/mvvm%E5%92%8Cmvc%EF%BC%8Cmvp%E5%8C%BA%E5%88%AB/"
+    >mvvm和mvc，mvp区别</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/01/24/mvvm%E5%92%8Cmvc%EF%BC%8Cmvp%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2021-01-24T13:45:16.000Z" itemprop="datePublished">2021-01-24</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>软件中最核心的，最基本的东西是什么? 是的，是数据。我们写的所有代码，都是围绕数据的。<br>围绕着数据的产生、修改等变化，出现了业务逻辑。<br>围绕着数据的显示，出现了不同的界面技术。 </p>
+<p>没有很好设计的代码，常常就会出现数据层(持久层)和业务逻辑层还有界面代码耦合的情况。</p>
+<p>ORM等框架，解耦合了业务逻辑和数据之间的耦合，业务逻辑不再关心底层数据如何存储和读取。所有数据呈现给业务逻辑层的就是一个个的对象。<br>而MVC, MVP, MMVM用来解决业务逻辑和视图之间的耦合。<br>MVC优点</p>
+<p>由于MVC很好的分离了视图层和业务层，所以它具有以下优点<br>耦合性低<br>开发速度快<br>可维护性高<br>没有控件的概念，对html没有封装，易于理解<br>和其它平台(java, php)等更加相似。便于人才获取<br>MVP的优势</p>
+<p>1、模型与视图完全分离，我们可以修改视图而不影响模型<br>2、可以更高效地使用模型，因为所有的交互都发生在一个地方——Presenter内部<br>3、我们可以将一个Presener用于多个视图，而不需要改变Presenter的逻辑。这个特性非常的有用，因为视图的变化总是比模型的变化频繁。<br>4、如果我们把逻辑放在Presenter中，那么我们就可以脱离用户界面来测试这些逻辑（单元测试）</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-原型链"
   class="article article-type-post"
   itemscope
@@ -708,82 +759,6 @@ Object.getOwnPropertySymbols(source).forEach(sym =&gt; &#123;
 Object.defineProperties(target, descriptors);</code></pre>
 <p>  });<br>  return target;<br>}</p>
 <p>copy = completeAssign({}, obj);<br>console.log(copy);<br>// { foo:1, get bar() { return 2 } }</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-ts"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/12/29/ts/"
-    >ts 严格模式</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/12/29/ts/" class="article-date">
-  <time datetime="2020-12-29T12:17:49.000Z" itemprop="datePublished">2020-12-29</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>TS的好处<br>方便更准确的检查错误。<br>给程序带来稳定性和可预测性。<br>静态类型检查。项目中不再需要typeof检查类型，数据类型之前就规定好的。比如react传过来的props就不需要写proptypes。<br>类型注解</p>
-<p>类型注解就是给变量、函数添加类型约束。</p>
-<p>function hello(name:string){<br>    return “hello,”+name;<br>}<br>这里规定了hello函数要接受一个字符串的参数，若此时传number等就会报错。<br>数据类型</p>
-<p>可限制的数据类型有：Boolean number string number[]/Array<br>元组</p>
-<p>元组允许数组类型可以不一致，如 let x:[number,string]<br>枚举</p>
-<p>枚举类型可以为一组数值赋予友好名字</p>
-<p>enum Color {Red=1,Green,Blue}<br>let colorName:string=color[2]<br>alert(colorName); //Green<br>任意值 any<br>当不清楚要指定什么类型时，用any来表示任意值let notSure:any=1<br>当只知道一部分数据的类型时候，也可以使用any,如数组可以包含不同类型的数据<br>let list:any[]=[1,true,’hello world’];<br>list[1]=100;<br>复制代码空值 void<br>如一个函数没有返回值时，则返回值类型为void<br>function noreturn():void{<br>    alert(‘this is not return’)<br>}</p>
-<p>类的修饰符<br>class Car{<br>    public type:string;<br>    private name: string;<br>    protected color:string;<br>    readonly shape:string;<br>}<br>new Car(“train”).name; // 错误: ‘name’ 是私有的.</p>
-<p>public：默认<br>private:不能在声明他的类的外部使用<br>protected:和private很相似，但是能在其派生类中使用<br>readonly:只读属性只能在构造函数或者申明时候使用</p>
-<p>总结<br>TS是JS的超集并能编译成JS，也就是说TS最终会要编译成js才使用。</p>
-<h3 id="TypeScript-中的严格模式"><a href="#TypeScript-中的严格模式" class="headerlink" title="TypeScript 中的严格模式"></a>TypeScript 中的严格模式</h3><p>在 tsconfig.json 文件中，有一个配置项叫做 strict，默认为 true，表示开启严格模式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &#x2F;* Strict Type-Checking Options *&#x2F;</span><br><span class="line">    &quot;strict&quot;: true,                       &#x2F;* Enable all strict type-checking options. *&#x2F;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>TypeScript 中的严格模式跟 JavaScript 中说的严格模式（即 use strict）不是一个概念，它表示是否开启下面一系列的类型检查规则：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;noImplicitAny&quot;: true,</span><br><span class="line">    &quot;strictNullChecks&quot;: true, </span><br><span class="line">    &quot;strictFunctionTypes&quot;: true,</span><br><span class="line">    &quot;strictBindCallApply&quot;: true,</span><br><span class="line">    &quot;strictPropertyInitialization&quot;: true,</span><br><span class="line">    &quot;noImplicitThis&quot;: true,</span><br><span class="line">    &quot;alwaysStrict&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果你设置 strict 为 true 的话，那么上面所有的配置默认全是 true<br>如果你设置 strict 为 false 的话，那么上面的所有配置默认全是 false<br>你如果既设置了 strict 又单独设置了其中的部分配置，那么以单独设置的配置为准</p>
-<h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><pre><code>console.log(a);  //undefined
-var a = 123; </code></pre>
-<p>因为变量a的声明被提到了作用域顶端。</p>
-<pre><code>var a;
-console.log(a)
-a = 123
-//所以输出内容为 undeifend</code></pre>
-<p>看一道面试题</p>
-<p>console.log(v1);<br>var v1 = 100;<br>function foo() {<br>    console.log(v1);<br>    var v1 = 200;<br>    console.log(v1);<br>}<br>foo();<br>console.log(v1);<br>// undefined  undefined 200  100<br>他的分析过程如下：</p>
-<p> //他的词法分析结果如下<br> var foo = ()=&gt;console.log(1)<br> foo()<br> var foo = null<br> foo = ()=&gt; console.log(2)<br> foo()<br>// 所以执行结果如下。<br>函数提升<br>具名函数的声明有两种方式：1. 函数声明式 2. 函数字面量式<br>//函数声明式<br>function bar () {}<br>//变量形式声明；<br>var foo = function () {}<br>函数 变量形式声明 和普通变量一样 提升的 只是一个没有值的变量。</p>
-<p>函数声明式的提升现象和变量提升略有不同，函数声明式会提升到作用域最前边，并且将声明内容一起提升到最上边。</p>
-<p>bar()</p>
-<p>var bar = function() {<br>  console.log(1);<br>}<br>// 报错：TypeError: bar is not a function<br>bar()<br>function bar() {<br>  console.log(1);<br>}<br>//输出结果1<br>知识点总结<br>所有的声明都会提升到作用域的最顶上去。</p>
-<p>同一个变量只会声明一次，其他的会被忽略掉或者覆盖掉。</p>
-<p>函数声明的优先级高于变量声明的优先级，并且函数声明和函数定义的部分一起被提升。</p>
  
       <!-- reward -->
       
