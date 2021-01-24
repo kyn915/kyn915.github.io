@@ -144,6 +144,65 @@
     
     
     <article
+  id="post-class"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/12/28/class/"
+    >class</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/12/28/class/" class="article-date">
+  <time datetime="2020-12-28T12:34:54.000Z" itemprop="datePublished">2020-12-28</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>静态成员</p>
+<p>类自身的成员，可以继承，但实例无法访问，一般多见于工具类。</p>
+<p>私有成员</p>
+<p>类内部的成员，一般是不能继承的，只能在内部使用，实例无法访问，有一点点像闭包内部的变量，但是还是一定的差别，目前 JavaScript 无法直接定义私有成员，只能通过其它方式辅助实现。</p>
+<p>getter/setter</p>
+<p>存取器属性，当我们访问或者修改一个实例的属性的时候，我们可通过存取器属性拦截这两个操作，从而做一些其它的事情，vue正是通过这个api来实现对数据变化的追踪。</p>
+<p>实例成员</p>
+<p>指 new 出来的实例所具有的成员，可以被继承，也是通过这个特性实现了代码的复用。</p>
+<p>JavaScript 中的 class 要分开说，在 ES6 中提供了两个关键字 class 和 extends ，虽然它们只是语法糖，底层还是再利用 prototype 实现继承的，但是不能否认，这中写法确实让代码更清晰，更易读<br>ES6 之前的 class<br>ES5 的继承，实质是先创造子类的实例对象 this，</p>
+<p>然后再将父类的方法添加到 this 上面 Parent.apply(this) 。</p>
+<p>ES6 的继承机制完全不同，实质是先创造父类的实例对象 this，所以必须先调用 super 方法，</p>
+<p>然后再用子类的构造函数修改this。</p>
+<p>为了实现继承，我们需要先实现一个 extendsClass 函数，它的作用是让子类继承父类的静态成员和实例成员。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-第一篇博客"
   class="article article-type-post"
   itemscope
