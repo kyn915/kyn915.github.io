@@ -144,6 +144,52 @@
     
     
     <article
+  id="post-proxy整理"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/01/26/proxy%E6%95%B4%E7%90%86/"
+    >proxy整理</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/01/26/proxy%E6%95%B4%E7%90%86/" class="article-date">
+  <time datetime="2021-01-26T00:59:51.000Z" itemprop="datePublished">2021-01-26</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+   
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-mvvm和mvc，mvp区别"
   class="article article-type-post"
   itemscope
@@ -622,7 +668,13 @@ return typeof ret === &#39;object&#39; ? ret : obj;</code></pre>
       
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <p>什么是回流<br>当render tree中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建。这就称为回流。每个页面至少需要一次回流，就是在页面第一次加载的时候，这时候是一定会发生回流的，因为要构建render tree。在回流的时候，浏览器会使渲染树中受到影响的部分失效，并重新构造这部分渲染树，完成回流后，浏览器会重新绘制受影响的部分到屏幕中，该过程成为重绘。</p>
+<p>什么是重绘<br>当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如background-color。则就叫称为重绘。</p>
+<p>何时发生回流重绘<br>我们前面知道了，回流这一阶段主要是计算节点的位置和几何信息，那么当页面布局和几何信息发生变化的时候，就需要回流。比如以下情况：</p>
+<p>添加或删除可见的DOM元素<br>元素的位置发生变化<br>元素的尺寸发生变化（包括外边距、内边框、边框大小、高度和宽度等）<br>内容发生变化，比如文本变化或图片被另一个不同尺寸的图片所替代。<br>页面一开始渲染的时候（这肯定避免不了）<br>浏览器的窗口尺寸变化（因为回流是根据视口的大小来计算元素的位置和大小的）<br>注意：回流一定会触发重绘，而重绘不一定会回流</p>
+<p>根据改变的范围和程度，渲染树中或大或小的部分需要重新计算，有些改变会触发整个页面的重排，比如，滚动条出现的时候或者修改了根节点。</p>
+<p>区别：<br>他们的区别很大：<br>回流必将引起重绘，而重绘不一定会引起回流。比如：只有颜色改变的时候就只会发生重绘而不会引起回流<br>当页面布局和几何属性改变时就需要回流<br>比如：添加或者删除可见的DOM元素，元素位置改变，元素尺寸改变——边距、填充、边框、宽度和高度，内容改变</p>
+ 
       <!-- reward -->
       
     </div>
@@ -701,86 +753,6 @@ return typeof ret === &#39;object&#39; ? ret : obj;</code></pre>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red, Green, Blue&#125; &#x2F;&#x2F;枚举</span><br><span class="line">let c: Color &#x3D; Color.Green;</span><br></pre></td></tr></table></figure>
 <p>编译后:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var Color;</span><br><span class="line">(function (Color) &#123;</span><br><span class="line">    Color[Color[&quot;Red&quot;] &#x3D; 0] &#x3D; &quot;Red&quot;;</span><br><span class="line">    Color[Color[&quot;Green&quot;] &#x3D; 1] &#x3D; &quot;Green&quot;;</span><br><span class="line">    Color[Color[&quot;Blue&quot;] &#x3D; 2] &#x3D; &quot;Blue&quot;;</span><br><span class="line">&#125;)(Color || (Color &#x3D; &#123;&#125;)); &#x2F;&#x2F;枚举</span><br><span class="line">var c &#x3D; Color.Green;</span><br></pre></td></tr></table></figure> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-属性描述符"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/01/03/%E5%B1%9E%E6%80%A7%E6%8F%8F%E8%BF%B0%E7%AC%A6/"
-    >属性描述符</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/01/03/%E5%B1%9E%E6%80%A7%E6%8F%8F%E8%BF%B0%E7%AC%A6/" class="article-date">
-  <time datetime="2021-01-03T12:55:48.000Z" itemprop="datePublished">2021-01-03</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>Object.defineProperty<br>Object.defineProperty(obj,prop,desctiptor)接受3个参数。<br>obj:接受一个对象、prop:定义或修改的属性或Smybol、descriptor:属性描述符</p>
-<p> let obj ={<br>    name:’hello’<br>}<br>Object.defineProperty(obj,’sex’,{value:’world’})<br>console.log(Object.keys(obj))<br>//只拿到了name 因为用上面定义的方法给对象添加的属性是不可枚举的所以它并不能被拿到<br>对象里目前存在属性描述符有两种主要形式：数据描述符合存取描述符。<br>数据描述符是一个具有值的属性，该值可以是可写的，也可以是不可写的。<br>存取描述符是由getter函数和setter函数所描述的属性。一个描述符只能是这两种其中之一，不能同时是两者<br>这两种描述符都是对象。他们共享一下可选键值(默认值是指咋使用Object.definPropety()定义属性时的默认值)<br>configurable<br>当且仅当该属性的 configurable 键值为 true 时，该属性的描述符才能够被改变，同时该属性也能从对应的对象上被删除。<br>默认为 false。<br>enumerable<br>当且仅当该属性的 enumerable 键值为 true 时，该属性才会出现在对象的枚举属性中。<br>默认为 false。<br>数据描述符还具有以下可选键值：</p>
-<p>value<br>该属性对应的值。可以是任何有效的 JavaScript 值（数值，对象，函数等）。<br>默认为 undefined。<br>writable<br>当且仅当该属性的 writable 键值为 true 时，属性的值，也就是上面的 value，才能被赋值运算符改变。<br>默认为 false。<br>存取描述符还具有以下可选键值：</p>
-<p>get<br>属性的 getter 函数，如果没有 getter，则为 undefined。当访问该属性时，会调用此函数。执行时不传入任何参数，但是会传入 this 对象（由于继承关系，这里的this并不一定是定义该属性的对象）。该函数的返回值会被用作属性的值。<br>默认为 undefined。<br>set<br>属性的 setter 函数，如果没有 setter，则为 undefined。当属性值被修改时，会调用此函数。该方法接受一个参数（也就是被赋予的新值），会传入赋值时的 this 对象。<br>默认为 undefined。<br>var o = {}; // 创建一个新对象</p>
-<p>// 在对象中添加一个属性与数据描述符的示例<br>Object.defineProperty(o, “a”, {<br>  value : 37,<br>  writable : true,<br>  enumerable : true,<br>  configurable : true<br>});</p>
-<p>// 对象 o 拥有了属性 a，值为 37</p>
-<p>// 在对象中添加一个设置了存取描述符属性的示例<br>var bValue = 38;<br>Object.defineProperty(o, “b”, {<br>  // 使用了方法名称缩写（ES2015 特性）<br>  // 下面两个缩写等价于：<br>  // get : function() { return bValue; },<br>  // set : function(newValue) { bValue = newValue; },<br>  get() { return bValue; },<br>  set(newValue) { bValue = newValue; },<br>  enumerable : true,<br>  configurable : true<br>});</p>
-<p>o.b; // 38<br>// 对象 o 拥有了属性 b，值为 38<br>// 现在，除非重新定义 o.b，o.b 的值总是与 bValue 相同</p>
-<p>// 数据描述符和存取描述符不能混合使用<br>Object.defineProperty(o, “conflict”, {<br>  value: 0x9f91102,<br>  get() { return 0xdeadbeef; }<br>});<br>// 抛出错误 TypeError: value appears only in data descriptors, get appears only in accessor descriptors</p>
-<p>自定义 Setters 和 Getters<br>下面的例子展示了如何实现一个自存档对象。当设置temperature 属性时，archive 数组会收到日志条目。</p>
-<p>function Archiver() {<br>  var temperature = null;<br>  var archive = [];</p>
-<p>  Object.defineProperty(this, ‘temperature’, {<br>    get: function() {<br>      console.log(‘get!’);<br>      return temperature;<br>    },<br>    set: function(value) {<br>      temperature = value;<br>      archive.push({ val: temperature });<br>    }<br>  });</p>
-<p>  this.getArchive = function() { return archive; };<br>}</p>
-<p>var arc = new Archiver();<br>arc.temperature; // ‘get!’<br>arc.temperature = 11;<br>arc.temperature = 13;<br>arc.getArchive(); // [{ val: 11 }, { val: 13 }]</p>
-<p>继承属性<br>如果访问者的属性是被继承的，它的 get 和 set 方法会在子对象的属性被访问或者修改时被调用。如果这些方法用一个变量存值，该值会被所有对象共享。</p>
-<p>function myclass() {<br>}</p>
-<p>var value;<br>Object.defineProperty(myclass.prototype, “x”, {<br>  get() {<br>    return value;<br>  },<br>  set(x) {<br>    value = x;<br>  }<br>});</p>
-<p>var a = new myclass();<br>var b = new myclass();<br>a.x = 1;<br>console.log(b.x); // 1<br>Object.assign()<br>Object.assign 方法只会拷贝源对象自身的并且可枚举的属性到目标对象。该方法使用源对象的[[Get]]和目标对象的[[Set]]，所以它会调用相关 getter 和 setter。因此，它分配属性，而不仅仅是复制或定义新的属性。如果合并源包含getter，这可能使其不适合将新属性合并到原型中。为了将属性定义（包括其可枚举性）复制到原型，应使用Object.getOwnPropertyDescriptor()和Object.defineProperty() 。</p>
-<p>let obj1 = {<br>    name:’hong’,<br>    sex:’女’<br>}<br>let obj2 = {<br>    age:’18’,<br>    get sayName(){<br>        return ‘hong’<br>    }<br>}<br>let obj3 = Object.assign({},obj1,obj2)<br>console.log(obj3)//此时合并完，就会把obj2里的存取属性给变成了数据属性<br>//应使用Object.getOwnPropertyDescriptor()和Object.defineProperty() 。<br>异常会打断后续拷贝任务</p>
-<p>const target = Object.defineProperty({}, “foo”, {<br>    value: 1,<br>    writable: false<br>}); // target 的 foo 属性是个只读属性。</p>
-<p>Object.assign(target, {bar: 2}, {foo2: 3, foo: 3, foo3: 3}, {baz: 4});<br>// TypeError: “foo” is read-only<br>// 注意这个异常是在拷贝第二个源对象的第二个属性时发生的。</p>
-<p>console.log(target.bar);  // 2，说明第一个源对象拷贝成功了。<br>console.log(target.foo2); // 3，说明第二个源对象的第一个属性也拷贝成功了。<br>console.log(target.foo);  // 1，只读属性不能被覆盖，所以第二个源对象的第二个属性拷贝失败了。<br>console.log(target.foo3); // undefined，异常之后 assign 方法就退出了，第三个属性是不会被拷贝到的。<br>console.log(target.baz);  // undefined，第三个源对象更是不会被拷贝到的。<br>拷贝访问器(手动实现你原来是个存取属性，现在通过Object.assign()拷贝过来还是存取属性)<br>const obj = {<br>  foo: 1,<br>  get bar() {<br>    return 2;<br>  }<br>};</p>
-<p>let copy = Object.assign({}, obj);<br>console.log(copy); // { foo: 1, bar: 2 } copy.bar的值来自obj.bar的getter函数的返回值</p>
-<p>// 下面这个函数会拷贝所有自有属性的属性描述符<br>function completeAssign(target, …sources) {<br>  sources.forEach(source =&gt; {<br>    let descriptors = Object.keys(source).reduce((descriptors, key) =&gt; {<br>      descriptors[key] = Object.getOwnPropertyDescriptor(source, key);<br>      return descriptors;<br>    }, {});</p>
-<pre><code>// Object.assign 默认也会拷贝可枚举的Symbols
-Object.getOwnPropertySymbols(source).forEach(sym =&gt; &#123;
-  let descriptor = Object.getOwnPropertyDescriptor(source, sym);
-  if (descriptor.enumerable) &#123;
-    descriptors[sym] = descriptor;
-  &#125;
-&#125;);
-Object.defineProperties(target, descriptors);</code></pre>
-<p>  });<br>  return target;<br>}</p>
-<p>copy = completeAssign({}, obj);<br>console.log(copy);<br>// { foo:1, get bar() { return 2 } }</p>
- 
       <!-- reward -->
       
     </div>
